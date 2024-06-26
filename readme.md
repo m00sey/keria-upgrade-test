@@ -19,7 +19,6 @@ The run-test.sh file contains the reproduction script that:
 - Starts a keria intance with version 0.2.0-dev2
 - Runs the script from scripts-connect
 
-
 # Results
 
 The script fails to connect to the keria instance. Keria responds with Internal Server Error and produces this log message:

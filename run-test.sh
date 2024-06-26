@@ -26,4 +26,4 @@ docker compose up -d keria
 # Try to connect
 docker compose up connect
 
-docker compose logs -f keria
+docker compose logs keria
