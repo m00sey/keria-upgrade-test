@@ -4,6 +4,8 @@
         "start": "tsx src/main.ts"
     },
     "dependencies": {
-        "signify-ts": "github:2byrds/signify-ts#fix/test_del_rot_multisig_more"
+        "@types/node": "^20.14.9",
+        "signify-ts": "github:2byrds/signify-ts#fix/test_del_rot_multisig_more",
+        "tsx": "^4.15.7"
     }
 }

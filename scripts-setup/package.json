@@ -4,6 +4,8 @@
         "start": "tsx src/main.ts"
     },
     "dependencies": {
-        "signify-ts": "github:weboftrust/signify-ts#main"
+        "@types/node": "^20.14.9",
+        "signify-ts": "github:weboftrust/signify-ts#main",
+        "tsx": "^4.15.7"
     }
 }

@@ -31,22 +31,20 @@ services:
       - 3903:3903
 
   setup:
-    build: .
+    build: ./scripts-setup
     depends_on:
       keria:
         condition: service_healthy
-    command: ["npm", "-w", "scripts-setup", "start"]
     environment:
       - KERIA_HOSTNAME=keria.docker
       - PASSCODE1=Az_WvJVeSEJodnUAfXb4B
       - PASSCODE2=B3j3xuGD-Sso-uJ-3XiFo
 
   connect:
-    build: .
+    build: ./scripts-setup
     depends_on:
       keria:
         condition: service_healthy
-    command: ["npm", "-w", "scripts-connect", "start"]
     environment:
       - KERIA_HOSTNAME=keria.docker
       - PASSCODE1=Az_WvJVeSEJodnUAfXb4B
