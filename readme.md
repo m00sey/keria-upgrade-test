@@ -19,6 +19,16 @@ The run-test.sh file contains the reproduction script that:
 - Starts a keria intance with version 0.2.0-dev2
 - Runs the script from scripts-connect
 
+## How to run
+
+Clone repo and run the run-test.sh scripts. Requires up to date docker version.
+
+```
+git clone git@github.com:lenkan/keria-upgrade-test.git
+cd keria-upgrade-test
+./run-test.sh
+```
+
 # Results
 
 The script fails to connect to the keria instance. Keria responds with Internal Server Error and produces this log message:
