@@ -15,12 +15,8 @@ services:
       - keria:/usr/local/var/keri
     entrypoint: keria
     command: [start, --config-file, keria, --name, agent]
-    networks:
-      default:
-        aliases:
-          - keria.docker
     healthcheck:
-      test: ["CMD", "wget", "http://keria.docker:3902/spec.yaml", "-O", "-"]
+      test: ["CMD", "wget", "http://keria:3902/spec.yaml", "-O", "-"]
       interval: 2s
       timeout: 3s
       retries: 5
@@ -36,7 +32,7 @@ services:
       keria:
         condition: service_healthy
     environment:
-      - KERIA_HOSTNAME=keria.docker
+      - KERIA_HOSTNAME=keria
       - PASSCODE1=Az_WvJVeSEJodnUAfXb4B
       - PASSCODE2=B3j3xuGD-Sso-uJ-3XiFo
 
@@ -46,6 +42,6 @@ services:
       keria:
         condition: service_healthy
     environment:
-      - KERIA_HOSTNAME=keria.docker
+      - KERIA_HOSTNAME=keria
       - PASSCODE1=Az_WvJVeSEJodnUAfXb4B
       - PASSCODE2=B3j3xuGD-Sso-uJ-3XiFo
