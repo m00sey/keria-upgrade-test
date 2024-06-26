@@ -41,7 +41,7 @@ services:
       - PASSCODE2=B3j3xuGD-Sso-uJ-3XiFo
 
   connect:
-    build: ./scripts-setup
+    build: ./scripts-connect
     depends_on:
       keria:
         condition: service_healthy
