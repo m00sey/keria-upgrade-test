@@ -1,0 +1,53 @@
+volumes:
+  keria:
+
+services:
+  keria:
+    image: weboftrust/keria:${KERIA_IMAGE_TAG:-0.1.2}
+    environment:
+      - KERI_AGENT_CORS=1
+      - KERI_URL=http://keria:3902
+      - PYTHONUNBUFFERED=1
+      - PYTHONIOENCODING=UTF-8
+    volumes:
+      - ./config/keria.json:/usr/local/var/keri/cf/keria.json
+      - ./migrate.sh:/keria/migrate.sh
+      - keria:/usr/local/var/keri
+    entrypoint: keria
+    command: [start, --config-file, keria, --name, agent]
+    networks:
+      default:
+        aliases:
+          - keria.docker
+    healthcheck:
+      test: ["CMD", "wget", "http://keria.docker:3902/spec.yaml", "-O", "-"]
+      interval: 2s
+      timeout: 3s
+      retries: 5
+      start_period: 2s
+    ports:
+      - 3901:3901
+      - 3902:3902
+      - 3903:3903
+
+  setup:
+    build: .
+    depends_on:
+      keria:
+        condition: service_healthy
+    command: ["npm", "-w", "scripts-setup", "start"]
+    environment:
+      - KERIA_HOSTNAME=keria.docker
+      - PASSCODE1=Az_WvJVeSEJodnUAfXb4B
+      - PASSCODE2=B3j3xuGD-Sso-uJ-3XiFo
+
+  connect:
+    build: .
+    depends_on:
+      keria:
+        condition: service_healthy
+    command: ["npm", "-w", "scripts-connect", "start"]
+    environment:
+      - KERIA_HOSTNAME=keria.docker
+      - PASSCODE1=Az_WvJVeSEJodnUAfXb4B
+      - PASSCODE2=B3j3xuGD-Sso-uJ-3XiFo

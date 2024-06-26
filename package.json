@@ -1,0 +1,24 @@
+{
+  "name": "keria-upgrade-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "tsx": "^4.15.7"
+  },
+  "workspaces": [
+    "scripts-setup",
+    "scripts-connect"
+  ]
+}
