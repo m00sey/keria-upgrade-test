@@ -35,6 +35,7 @@ services:
       - KERIA_HOSTNAME=keria
       - PASSCODE1=Az_WvJVeSEJodnUAfXb4B
       - PASSCODE2=B3j3xuGD-Sso-uJ-3XiFo
+      - PASSCODE3=CsTbLFEAme4Ozny7n-NlI
 
   connect:
     build: ./scripts-connect
@@ -45,3 +46,4 @@ services:
       - KERIA_HOSTNAME=keria
       - PASSCODE1=Az_WvJVeSEJodnUAfXb4B
       - PASSCODE2=B3j3xuGD-Sso-uJ-3XiFo
+      - PASSCODE3=CsTbLFEAme4Ozny7n-NlI

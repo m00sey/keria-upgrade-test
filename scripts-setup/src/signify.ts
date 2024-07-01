@@ -13,6 +13,7 @@ export interface Member {
   prefix: string;
   oobi: string;
   agentId: string;
+  client: SignifyClient;
   createGroup(name: string, members: Member[], dt: string, delegator?: string): Promise<Group>;
   resolveOobi(other: Pick<Member, "oobi" | "alias">): Promise<void>;
 }
@@ -45,6 +46,7 @@ export async function createKeriaWallet(options: CreateWalletOptions): Promise<M
   }
 
   return {
+    client,
     prefix: hab.prefix,
     passcode,
     alias: options.alias,
