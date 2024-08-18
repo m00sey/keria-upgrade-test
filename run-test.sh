@@ -6,7 +6,7 @@ docker compose down -v
 docker compose build
 
 # Start keria 0.1.2
-export KERIA_IMAGE_TAG=0.1.2
+export KERIA_IMAGE_TAG=0.1.3
 docker compose pull
 docker compose up -d keria
 
@@ -17,9 +17,11 @@ docker compose up setup
 docker compose down keria
 
 # Run migrations with new version
-export KERIA_IMAGE_TAG=0.2.0-dev3
+export KERIA_IMAGE_TAG=0.2.0-dev4-sig-fix
+# export KERIA_IMAGE_TAG=0.1.4-dev0
 docker compose pull
 docker compose run -it --rm --entrypoint /keria/migrate.sh keria
+docker compose run -it --rm --entrypoint /keria/update.sh keria
 
 # Start new version
 docker compose up -d --force-recreate keria

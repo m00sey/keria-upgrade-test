@@ -3,7 +3,7 @@ volumes:
 
 services:
   keria:
-    image: weboftrust/keria:${KERIA_IMAGE_TAG:-0.1.2}
+    image: m00sey/keria:${KERIA_IMAGE_TAG:-0.1.3}
     environment:
       - KERI_AGENT_CORS=1
       - KERI_URL=http://keria:3902
@@ -12,6 +12,7 @@ services:
     volumes:
       - ./config/keria.json:/usr/local/var/keri/cf/keria.json
       - ./migrate.sh:/keria/migrate.sh
+      - ./update.sh:/keria/update.sh
       - keria:/usr/local/var/keri
     entrypoint: keria
     command: [start, --config-file, keria, --name, agent]
