@@ -1,2 +1,2 @@
 #!/bin/sh
-keria sig-fix --force
+keria sig-fix
